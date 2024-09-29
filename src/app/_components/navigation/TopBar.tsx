@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import logoImg from '@/public/logo.png';
+import { fontBody } from "@/app/fonts";
 
 const TopBar = ({ toggle, isSidebarOpen }: { toggle: () => void, isSidebarOpen: boolean }) => {
     // update the size of the logo when the size of the screen changes
@@ -42,7 +43,7 @@ const TopBar = ({ toggle, isSidebarOpen }: { toggle: () => void, isSidebarOpen: 
 
     return (
         <>
-            <div className={(hasBackground ? "bg-black/20" : "") + " w-full h-24  fixed top-0 z-20 transition duration-500"}>
+            <div className={(hasBackground ? "bg-black/60 backdrop-blur-sm" : "") + " w-full h-24 fixed top-0 z-20 transition duration-500"}>
                 <div className="container mx-auto px-4 h-full">
                     <div className="flex justify-between items-center h-full">
                         <Link href="/">
@@ -50,7 +51,8 @@ const TopBar = ({ toggle, isSidebarOpen }: { toggle: () => void, isSidebarOpen: 
                                 src={logoImg}
                                 alt="Artekadry"
                                 height={logoSize === null ? smallLogoSize : logoSize}
-                                className={(logoSize === null ? "hidden" : "") + (hasBackground ? " top-2" : " top-5") + " absolute z-30 transition-all duration-500"}
+                                priority={true}
+                                className={(logoSize === null ? "" : "") + (hasBackground ? " top-2" : " top-5") + " absolute z-30 transition-all duration-500"}
                             />
                         </Link>
                         <button type="button" className="inline-flex items-center md:hidden" onClick={toggle}>
@@ -58,11 +60,11 @@ const TopBar = ({ toggle, isSidebarOpen }: { toggle: () => void, isSidebarOpen: 
                                 <path fill="#fff" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z" />
                             </svg>
                         </button>
-                        <ul className="hidden md:flex gap-x-6 text-white ">
-                            <li><Link href="/o-mnie" className="uppercase">O mnie</Link></li>
-                            <li><Link href="/galeria" className="uppercase">Galeria</Link></li>
-                            <li><Link href="/oferta" className="uppercase">Oferta</Link></li>
-                            <li><Link href="/kontakt" className="uppercase">Kontakt</Link></li>
+                        <ul className={fontBody.className + " hidden md:flex gap-x-6 text-white font-light"}>
+                            <li><Link href="/o-mnie" className="uppercase hover:underline underline-offset-4">O mnie</Link></li>
+                            <li><Link href="/galeria" className="uppercase hover:underline underline-offset-4">Galeria</Link></li>
+                            <li><Link href="/oferta" className="uppercase hover:underline underline-offset-4">Oferta</Link></li>
+                            <li><Link href="/kontakt" className="uppercase hover:underline underline-offset-4">Kontakt</Link></li>
                         </ul>
                     </div>
                 </div>

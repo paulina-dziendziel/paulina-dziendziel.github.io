@@ -42,8 +42,9 @@ const HomeSlider = () => {
       {slides.map((slide) => (
         <SwiperSlide key={slide.image.src}>
           <div className="h-screen w-full absolute left-0 top-0 z-10">
-            <Image src={slide.image} alt="" fill={true} className="object-cover"
-              style={{ "objectPosition": slide["position-x"] }} />
+            <Image src={slide.image} alt="" fill={true} className="object-cover" placeholder="blur"
+              style={{ "objectPosition": slide["position-x"] }}
+              sizes="(min-width: 440px) 99.22vw, (min-width: 400px) 400px, (min-width: 360px) 360px, calc(50vw + 150px)" />
           </div>
         </SwiperSlide>
       ))}

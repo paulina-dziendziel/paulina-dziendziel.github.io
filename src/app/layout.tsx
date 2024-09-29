@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 import Navigation from "./_components/navigation";
-
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import ScrollToTop from "./_components/ScrollToTop";
+import { fontHeader, fontBody } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Artekadry Paulina Dziendziel Fotografia",
@@ -18,10 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={inter.className}>
+      <body className={fontBody.className + "text-lg font-light"}>
         <Navigation />
         {children}
+        <footer className="container relative" style={{ lineHeight: '3rem' }}>
+          <ScrollToTop />
+          <div className="text-gray-500 text-center">&copy; 2024 Paulina Dziendziel | <Link href="/kontakt" className="text-link">Kontakt</Link></div>
+        </footer>
       </body>
-    </html >
+    </html>
   );
 }
