@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={fontBody.className + "text-lg font-light"}>
+      <body className={fontBody.className + " text-lg font-light bg-orange-25"}>
         <Navigation />
         {children}
         <footer className="container relative" style={{ lineHeight: '3rem' }}>

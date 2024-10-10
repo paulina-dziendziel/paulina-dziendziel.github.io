@@ -5,12 +5,15 @@ const config = {
   ],
   theme: {
     extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: 'none',
-          }
-        }
+      aspectRatio: {
+        'h': '3 / 2',
+        'v': '2 / 3'
+      },
+      colors: {
+        'orange-25': '#FFFDFA'
+      },
+      maxWidth: {
+        'screen': '100vw',
       }
     },
     container: {

@@ -7,7 +7,9 @@ const Navigation = () => {
     // toggle sidebar
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => {
+        console.log("BEFORE TOGGLE", isOpen);
         setIsOpen(!isOpen);
+        console.log("TOGGLED", isOpen);
     };
     return (
         <>

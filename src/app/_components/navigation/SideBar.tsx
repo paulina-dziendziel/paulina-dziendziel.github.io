@@ -12,7 +12,7 @@ const Sidebar = ({
     return (
         <>
             <div
-                className="sidebar-container fixed w-full h-full overflow-hidden justify-center bg-black/80 grid pt-[120px] left-0 z-30 transition-all duration-500 backdrop-blur-sm"
+                className="fixed w-full h-full overflow-hidden justify-center bg-black/80 grid pt-[120px] left-0 z-30 transition-all duration-500 backdrop-blur-sm"
                 style={{
                     opacity: `${isOpen ? "1" : "0"}`,
                     top: ` ${isOpen ? "0" : "-100%"}`,
@@ -43,7 +43,7 @@ const Sidebar = ({
                     </Link>
                     <ul className="text-center leading-[3] text-xl text-white">
                         <li><Link href="/o-mnie" className="uppercase" onClick={toggle}>O mnie</Link></li>
-                        <li><Link href="/galeria" className="uppercase" onClick={toggle}>Galeria</Link></li>
+                        <li><Link href="/#galeria" className="uppercase" onClick={toggle}>Galeria</Link></li>
                         <li><Link href="/oferta" className="uppercase" onClick={toggle}>Oferta</Link></li>
                         <li><Link href="/kontakt" className="uppercase" onClick={toggle}>Kontakt</Link></li>
                     </ul>

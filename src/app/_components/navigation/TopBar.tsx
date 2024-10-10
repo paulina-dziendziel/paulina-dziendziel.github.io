@@ -52,6 +52,7 @@ const TopBar = ({ toggle, isSidebarOpen }: { toggle: () => void, isSidebarOpen: 
                                 alt="Artekadry"
                                 height={logoSize === null ? smallLogoSize : logoSize}
                                 priority={true}
+                                loading="eager"
                                 className={(logoSize === null ? "" : "") + (hasBackground ? " top-2" : " top-5") + " absolute z-30 transition-all duration-500"}
                             />
                         </Link>
@@ -62,7 +63,7 @@ const TopBar = ({ toggle, isSidebarOpen }: { toggle: () => void, isSidebarOpen: 
                         </button>
                         <ul className={fontBody.className + " hidden md:flex gap-x-6 text-white font-light"}>
                             <li><Link href="/o-mnie" className="uppercase hover:underline underline-offset-4">O mnie</Link></li>
-                            <li><Link href="/galeria" className="uppercase hover:underline underline-offset-4">Galeria</Link></li>
+                            <li><Link href="/#galeria" className="uppercase hover:underline underline-offset-4">Galeria</Link></li>
                             <li><Link href="/oferta" className="uppercase hover:underline underline-offset-4">Oferta</Link></li>
                             <li><Link href="/kontakt" className="uppercase hover:underline underline-offset-4">Kontakt</Link></li>
                         </ul>

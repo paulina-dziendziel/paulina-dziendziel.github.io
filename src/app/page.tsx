@@ -1,6 +1,6 @@
 import HomeSlider from "./_components/MainSlider"
 import Image from "next/image";
-import DSC04128 from '@/public/o-mnie/DSC04128obrocone.jpg'
+
 import Link from "next/link";
 /*
 https://tailwindcss.com/docs/configuration#referencing-in-java-script
@@ -9,9 +9,9 @@ Note that this will transitively pull in a lot of our build-time dependencies, r
 import resolveConfig from 'tailwindcss/resolveConfig'
 import config from '!/tailwind.config.js'
 const fullConfig = resolveConfig(config)
-import { fontHeader, fontBody } from "./fonts";
+import { fontHeader } from "./fonts";
 
-
+import imgAboutMe from '@/public/o-mnie/P1400545.jpg'
 import imgWeddings from '@/public/galeria/AKD03359.jpg'
 import imgBaptismAndCommunion from '@/public/galeria/Chrzest Aurelki-13.jpg'
 import imgFamilyAndChildren from '@/public/galeria/DSC06148.jpg'
@@ -27,52 +27,52 @@ const galleries = [{
   "title": "Śluby",
   "image": imgWeddings,
   "position-x": "50%",
-  "url": "fotografia/slubna"
+  "url": "/fotografia/slub"
 }, {
   "title": "Chrzty i komunie",
   "image": imgBaptismAndCommunion,
   "position-x": "50%",
-  "url": "fotografia/chrzest-i-komunia"
+  "url": "/fotografia/chrzest-i-komunia"
 }, {
   "title": "Rodzinne i dziecięce",
   "image": imgFamilyAndChildren,
   "position-x": "50%",
-  "url": "fotografia/rodzinna-i-dziecieca"
+  "url": "/fotografia/rodzinna-i-dziecieca"
 }, {
   "title": "Sesje dla par",
   "image": imgCouples,
   "position-x": "50%",
-  "url": "fotografia/sesje-zdjeciowe-dla-par"
+  "url": "/fotografia/sesje-zdjeciowe-dla-par"
 }, {
   "title": "Sesje portretowe",
   "image": imgPortraits,
   "position-x": "50%",
-  "url": "fotografia/sesje-portretowe"
+  "url": "/fotografia/sesje-portretowe"
 }, {
   "title": "Urodziny",
   "image": imgBirthdays,
   "position-x": "50%",
-  "url": "fotografia/urodziny"
+  "url": "/fotografia/urodziny"
 }, {
   "title": "Imprezy",
   "image": imgParties,
   "position-x": "50%",
-  "url": "fotografia/imprezy"
+  "url": "/fotografia/imprezy"
 }, {
   "title": "Wydarzenia",
   "image": imgEvents,
   "position-x": "50%",
-  "url": "fotografia/reportaz-z-wydarzenia"
+  "url": "/fotografia/reportaz-z-wydarzenia"
 }, {
   "title": "Portrety ze zdjęć",
   "image": imgPortraitPaintings,
   "position-x": "50%",
-  "url": "malarstwo/portrety-ze-zdjec"
+  "url": "/malarstwo/portrety-ze-zdjec"
 }, {
   "title": "Koperty scrapbookingowe",
   "image": imgScrapbooking,
   "position-x": "50%",
-  "url": "scrapbooking/koperty"
+  "url": "/scrapbooking/koperty"
 }];
 
 export default function Home() {
@@ -82,13 +82,12 @@ export default function Home() {
         <HomeSlider />
       </section>
       <section className="container py-10">
-        <article className="prose flow-root">
+        <article className="flow-root">
           <h2 className={fontHeader.className}>O mnie</h2>
-          <Image src={DSC04128} width={0} height={0} alt="" className="not-prose float-left w-48 md:w-80 lg:w-96 mt-1 mr-[2em]"
+          <Image src={imgAboutMe} width={0} height={0} alt=""
+            className="float-left w-48 md:w-80 lg:w-1/3 mt-1 mr-[1.5rem] md:mr-[2rem]"
             sizes={fullConfig.theme.width[80]} />
-          <p className="text-2xl pb-2">
-            Witaj!
-          </p><p>Mam na imię Paulina. Miło mi, że tu jesteś!
+          <p>Witaj! Mam na imię Paulina. Miło mi, że tu jesteś!
             Znajdziesz u mnie ofertę reportaży na różne okazje oraz szeroki wybór sesji od portretowych,
             rodzinnych, dziecięcych po romantyczne i ślubne. Uwiecznię Twoje najcenniejsze chwile,
             by stały się pamiątką do której chetnie będziesz wracać.</p>
@@ -97,7 +96,7 @@ export default function Home() {
           </p>
         </article>
       </section>
-      <section className="pt-10">
+      <section className="pt-10" id="galeria">
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-2">
           {galleries.map((gallery) => {
             return (
@@ -105,11 +104,11 @@ export default function Home() {
                 <Link href={gallery.url}>
                   <Image src={gallery.image} alt={gallery.title}
                     width={0} height={0} placeholder="blur" sizes="(min-width: 780px) 50vw, 100vw"
-                    className="w-full h-auto"
+                    className="w-full h-auto border-r border-b border-orange-25"
                     style={{
                       objectPosition: gallery["position-x"]
                     }} />
-                  <div className="md:text-lg bg-black/40 absolute z-10 right-0 bottom-4 py-2 px-4 uppercase text-white group-hover:pr-20 transition-all duration-500">
+                  <div className="md:text-lg bg-black/40 absolute z-10 right-1 bottom-4 py-2 px-4 uppercase text-white group-hover:pr-20 transition-all duration-500">
                     {gallery.title}
                   </div>
                 </Link>

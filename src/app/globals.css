@@ -2,7 +2,11 @@
 
 @layer base {
     h2 {
-        @apply text-center text-8xl mb-[0.25em] font-light
+        @apply text-center text-8xl mb-[0.25em] font-light drop-shadow-sm
+    }
+
+    h3 {
+        @apply text-2xl mb-[0.5em] mt-[1em] font-light
     }
 
     p {
@@ -16,6 +20,41 @@
     .text-link {
         @apply text-orange-700 whitespace-nowrap hover:underline underline-offset-4
     }
+
+    .button {
+        @apply bg-orange-50 hover:bg-orange-100 py-2 px-4 rounded mt-5 font-medium inline-block
+    }
+
+    .tile {
+        @apply max-h-[80vh] relative bg-gray-200 border-orange-25 border-b border-r last:border-r-0 hover:cursor-zoom-in
+    }
+
+    .tile.aspect-h {
+        @apply grow-[2.25]
+    }
+
+    .tile.aspect-v {
+        @apply grow-[1]
+    }
+
+    .gallery-lightbox .swiper-button-prev, .gallery-lightbox .swiper-button-next {
+        @apply drop-shadow-[0_0_4px_white]
+    }
 }
 
 @tailwind utilities;
+
+@layer utilities {
+
+    .clip-corners {
+
+        clip-path: polygon(2vw 0, calc(100% - 2vw) 0, 100% 0, 100% calc(100% - 2vw), calc(100% - 2vw) 100%, 0 100%, 0 calc(100% - 2vw), 0 2vw);
+
+    }
+
+}
+
+html {
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
+}
